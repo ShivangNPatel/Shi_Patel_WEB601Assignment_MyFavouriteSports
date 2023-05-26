@@ -1,6 +1,5 @@
 <app-content-card
   *ngFor="let content of contentList.slice(0, 5)"
- 
-
   [class.border]="content.id === 1"
+  [content]="content"
 ></app-content-card>
