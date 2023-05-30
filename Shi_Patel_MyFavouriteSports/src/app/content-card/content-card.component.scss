@@ -1,43 +1,52 @@
-.card {
-    border: 2px solid #000;
-    padding: 10px;
-    margin: 10px;
-    background-color: #f0f0f0;
-}
-
-  
-  .image-container {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-    border-radius: 5px;
-  }
- 
-  
-  
-  .description {
-    margin-top: 5px;
-  }
-  
-  .creator {
-    font-size: 14px;
-    color: #666;
-    margin-top: 5px;
-  }
-  
-  .type {
-    font-size: 14px;
-    color: #666;
-    margin-top: 5px;
-  }
-  
-  .tags {
-    margin-top: 10px;
-  }
-  
-  .tags span {
-    display: inline-block;
+.content-card {
     background-color: #f5f5f5;
-    color: #333;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  
+    p {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+    }
+  
+    .title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  
+    .description {
+      color: #777;
+      margin-bottom: 5px;
+    }
+  
+    .creator {
+      color: #999;
+      margin-bottom: 5px;
+    }
+  
+    .image {
+      width: 100%;
+      height: auto;
+      margin-bottom: 5px;
+    }
+  
+    .type {
+      color: #555;
+      font-size: 14px;
+    }
+  
+    .tags {
+      margin-top: 5px;
+      
+      span {
+        background-color: #eee;
+        color: #555;
+        padding: 2px 5px;
+        margin-right: 3px;
+        border-radius: 3px;
+        font-size: 12px;
+      }
+    }
   }
+  

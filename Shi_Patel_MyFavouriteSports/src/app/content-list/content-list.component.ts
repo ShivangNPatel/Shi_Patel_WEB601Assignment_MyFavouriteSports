@@ -10,14 +10,14 @@ import { Content } from '../helper-files/content-interface';
 
 
 export class ContentListComponent {
-  contentList: Content[] = [
+  contents: any[] =[
     {
       id: 1,
       title: 'Cricket',
       description: 'One of the famous sport',
       creator: 'England',
-      imgURL: 'https://4.bp.blogspot.com/-QyIkFxPedak/TZe_pW2PnLI/AAAAAAAAASE/dDz6DIaFnhI/s1600/131002.jpg',
-      type: 'Sports, OutdoorGame',
+      imgURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0HG2Zex_a1oIbRqjGFR7SzPXWp-9VjaCNmw&usqp=CAU',
+      type: 'OutdoorGames',
       tags: ['Bat, Ball']
     },
     {
@@ -25,8 +25,8 @@ export class ContentListComponent {
       title: 'Badminton',
       description: 'indoor game played with 2 and 4 players',
       creator: 'India',
-      imgURL: 'https://blog.playo.co/wp-content/uploads/2017/04/indian-badminton-player-ashwini-1536x1037.jpg',
-      type: 'Sport, IndoorGame',
+      imgURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoKFq8rF0v5vU5fpK5TyInezlmbtHgTt042XyKQe2EpJaOlR6Fjgs6HSdNqRpeyNHPdIU&usqp=CAU',
+      type: '',
       tags: ['Shuttle, Cock']
     },
     {
@@ -35,10 +35,56 @@ export class ContentListComponent {
       description: 'Game of clever people',
       creator: 'India',
       imgURL: 'https://tse2.mm.bing.net/th?id=OIP.5VzfD4yIYpT4LbMWyldpFwHaEg&pid=Api&P=0',
-      type: 'BoardGame, IndoorGame',
+      type: 'IndoorGames',
       tags: ['Black, White']
+    },
+    {
+      id: 4,
+      title: 'Ludo',
+      description: 'Game of clever people',
+      creator: 'India',
+      imgURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROmDPNAV-h7u9ImIwkb6R-nkK_0H1nFO4tAA&usqp=CAU',
+      type: 'IndoorGames',
+      tags: ['Dice, Board']
+    },
+    {
+      id: 5,
+      title: 'Baseball',
+      description: 'Similar to cricket',
+      creator: 'USA',
+      imgURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnps-tj9mZ8bLvrk1nEpgmO9qB4VWjpKSfYQ&usqp=CAU',
+      type: 'OutdoorGames',
+      tags: ['Bat, Ball']
+    },
+    {
+      id: 6,
+      title: 'Football',
+      description: 'Also known as Soccer',
+      creator: 'Europe',
+      imgURL: 'https://football-observatory.com/local/adapt-img/450/10x/IMG/logo/mr84-2.jpg?1681037790',
+      type: 'OutdoorGames',
+      tags: ['Ball, GoalKeeper']
+    },
+    {
+      id: 8,
+      title: 'Golf',
+      description: 'we have to hit ball into hole',
+      creator: 'Scotland',
+      imgURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8xFESAWhIfNs7sbzDifFDvNvbPRFIbD74WzVouqTP7-_TDR5-efgJdaLwLgFt7OZNjcQ&usqp=CAU',
+      type: 'OutdoorGames',
+      tags: ['Ball, Hole']
     }
   ];
 
-  constructor() {}
+// Inside the Content-List component class
+searchTitle: string = '';
+searchResult: boolean = false; 
+searchMessage: string = '';
+
+searchByTitle() {
+  this.searchResult = this.contents.some(content => content.title.toLowerCase() === this.searchTitle.toLowerCase());
+  this.searchMessage = this.searchResult
+    ? `Content with title "${this.searchTitle}" exists.`
+    : `Content with title "${this.searchTitle}" doesn't exist.`;
+  }
 }
