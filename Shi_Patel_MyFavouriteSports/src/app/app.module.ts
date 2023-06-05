@@ -6,6 +6,7 @@ import { ContentCardComponent } from './content-card/content-card.component';
 import { ContentListComponent } from './content-list/content-list.component';
 import { ContentTypeFilterPipe } from './content-type-filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { HoverAffectDirective } from './hover-affect.directive';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     ContentCardComponent,
     ContentListComponent,
-    ContentTypeFilterPipe
+    ContentTypeFilterPipe,
+    HoverAffectDirective
   ],
   imports: [
     BrowserModule,

@@ -52,7 +52,8 @@ export class ContentListComponent {
       title: 'Baseball',
       description: 'Similar to cricket',
       creator: 'USA',
-      imgURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnps-tj9mZ8bLvrk1nEpgmO9qB4VWjpKSfYQ&usqp=CAU',
+      imgURL: '',
+      // imgURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnps-tj9mZ8bLvrk1nEpgmO9qB4VWjpKSfYQ&usqp=CAU',
       type: 'OutdoorGames',
       tags: ['Bat, Ball']
     },
