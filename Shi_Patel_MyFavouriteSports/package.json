@@ -1,6 +1,6 @@
 {
   "name": "shi-patel-my-favourite-sports",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
