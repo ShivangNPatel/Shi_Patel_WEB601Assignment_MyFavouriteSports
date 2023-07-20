@@ -6,15 +6,20 @@ import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/
 export class HoverAffectDirective {
 
   @Input('hoverAffect') styleProperty: string;
+  private originalBorderStyle: string;
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) { 
+    this.originalBorderStyle = elementRef.nativeElement.style.border;
+  }
 
   @HostListener('mouseenter') onMouseEnter() {
     this.applyStyle(this.styleProperty, true);
+    this.elementRef.nativeElement.style.border = '2px solid black';
   }
 
   @HostListener('mouseleave') onMouseLeave() {
     this.applyStyle(this.styleProperty, false);
+    this.elementRef.nativeElement.style.border = this.originalBorderStyle;
   }
 
   private applyStyle(property: string, value: boolean) {
@@ -28,7 +33,7 @@ export class HoverAffectDirective {
       case 'font-weight':
         return 'bold';
       case 'border':
-        return '2px solid blue';
+        return '2px solid black';
       default:
         return '';
     }

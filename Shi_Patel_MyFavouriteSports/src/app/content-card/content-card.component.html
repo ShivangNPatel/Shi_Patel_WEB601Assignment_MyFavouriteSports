@@ -1,12 +1,17 @@
+<div [id]="song.id" [ngClass]="['card', class]" hoverAffect="border">
 
-<div class="content-card">
-  <p>{{ content.title }}</p>
-  <p>{{ content.description }}</p>
-  <p>{{ content.creator }}</p>
-  <!-- <img [src]="content.imgURL">
-  <p>{{ content.type }}</p>
-  <p>{{ content.tags }}</p> -->
-  <img [src]="content.imgURL || 'https://image.shutterstock.com/image-photo/huge-multi-sports-collage-soccer-260nw-650017768.jpg'" alt="Default Image">
-  <p [hoverAffect]="'text-decoration'">{{ content.type }}</p>
-  <p *ngFor="let tag of content.tags" [hoverAffect]="'font-weight'">{{ tag }}</p>
+  <div *ngIf="song.image; else defaultImage">
+      <img  [src]="song.image" alt={{song.title}} (click)="handleClick(song)">
+  </div>
+  <ng-template #defaultImage>
+      <img [src]="defaultSong" alt={{song.title}} (click)="handleClick(song)">
+  </ng-template>
+
+  <h2>{{song.title}}</h2>
+  <p>{{song.description}}</p>
+  <p><strong>Creator:</strong> {{song.creator}}</p>
+  <p *ngIf="song.type" hoverAffect="underline"><strong>Type:</strong> {{song.type}}</p>
+  <p *ngIf="song.tags"><strong>Tags:</strong> 
+      <span *ngFor="let tag of song.tags" hoverAffect="bold">#{{ tag }}</span>
+  </p>
 </div>
