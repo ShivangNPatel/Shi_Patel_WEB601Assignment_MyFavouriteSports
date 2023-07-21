@@ -1,17 +1,23 @@
-<div [id]="song.id" [ngClass]="['card', class]" hoverAffect="border">
-
-    <div *ngIf="song.image; else defaultImage">
-        <img  [src]="song.image" alt={{song.title}} (click)="handleClick(song)">
-    </div>
-    <ng-template #defaultImage>
-        <img [src]="defaultSong" alt={{song.title}} (click)="handleClick(song)">
-    </ng-template>
-
-    <h2>{{song.title}}</h2>
-    <p>{{song.description}}</p>
-    <p><strong>Creator:</strong> {{song.creator}}</p>
-    <p *ngIf="song.type" hoverAffect="underline"><strong>Type:</strong> {{song.type}}</p>
-    <p *ngIf="song.tags"><strong>Tags:</strong> 
-        <span *ngFor="let tag of song.tags" hoverAffect="bold">#{{ tag }}</span>
-    </p>
-</div>
+<mat-card [id]="song.id" [ngClass]="['card', class]" appHoverAffect="border">
+    <mat-card-header [matTooltip]="song.title" [matTooltipPosition]="'above'">
+        <div class="card-img">
+            <div *ngIf="song.image; else defaultImage">
+                <img mat-card-image  [src]="song.image" alt={{song.title}} (click)="handleClick(song)">
+            </div>
+            <ng-template #defaultImage>
+                <img mat-card-image [src]="defaultSong" alt={{song.title}} (click)="handleClick(song)">
+            </ng-template>
+        </div>
+    </mat-card-header>
+    <mat-card-content class="card-body">
+        <h2>{{song.title}}</h2>
+        <p>{{song.description}}</p>
+        <p><strong>Creator:</strong> {{song.creator}}</p>
+    </mat-card-content>
+    <mat-card-footer>
+        <p *ngIf="song.type" appHoverAffect="underline"><strong>Type:</strong> {{song.type}}</p>
+        <p *ngIf="song.tags"><strong>Tags:</strong> 
+            <span *ngFor="let tag of song.tags" appHoverAffect="bold"> #{{tag}}, </span>
+        </p>
+    </mat-card-footer>
+</mat-card>

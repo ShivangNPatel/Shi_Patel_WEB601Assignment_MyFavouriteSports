@@ -12,7 +12,7 @@ export class ContentListComponent {
   contents: Content[] = [];
   searchTitle: string = "";
   titleFound: boolean | null = null;
-  defaultSong: string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0HG2Zex_a1oIbRqjGFR7SzPXWp-9VjaCNmw&usqp=CAU';
+  defaultSong: string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoKFq8rF0v5vU5fpK5TyInezlmbtHgTt042XyKQe2EpJaOlR6Fjgs6HSdNqRpeyNHPdIU&usqp=CAU';
 
   constructor(private SongServiceService: SongServiceService){
     
@@ -32,7 +32,7 @@ export class ContentListComponent {
 
   searchByTitle() {
     const matchingSong = this.contents.find(song => song.title.toLowerCase() === this.searchTitle.toLowerCase());
-    const cardElements = document.querySelectorAll(`div.card`);
+    const cardElements = document.querySelectorAll(`.card`);
     if(matchingSong){
       this.titleFound = true;
       cardElements.forEach(card => {

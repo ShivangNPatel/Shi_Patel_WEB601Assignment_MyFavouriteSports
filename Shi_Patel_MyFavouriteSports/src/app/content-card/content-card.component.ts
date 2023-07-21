@@ -9,7 +9,7 @@ import { Content } from '../helper-files/content-interface';
 export class ContentCardComponent {
   @Input() song: any;
   @Input() class: string = '';
-  defaultSong: string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0HG2Zex_a1oIbRqjGFR7SzPXWp-9VjaCNmw&usqp=CAU';
+  defaultSong: string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoKFq8rF0v5vU5fpK5TyInezlmbtHgTt042XyKQe2EpJaOlR6Fjgs6HSdNqRpeyNHPdIU&usqp=CAU';
 
   handleClick(content: Content){
     console.log(`ID: ${content.id}, Title: ${content.title}`);
