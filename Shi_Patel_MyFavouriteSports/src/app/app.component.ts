@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Content } from './helper-files/content-interface';
-import { SportsServiceService } from './services/sports-service.service';
+import { SongServiceService } from './services/sports-service.service';
 
 @Component({
   selector: 'app-root',
@@ -13,14 +13,14 @@ export class AppComponent {
   songId:number = 8;
   oneSongById: any = {};
 
-  constructor(private SportsServiceService: SportsServiceService){}
+  constructor(private SongServiceService: SongServiceService){}
 
   ngOnInit(){
     this.findSongById();
   }
 
   findSongById(){
-    this.SportsServiceService.getSongById(this.songId).subscribe(result => {
+    this.SongServiceService.getSongById(this.songId).subscribe(result => {
       if (typeof result === "object"){
         this.oneSongById = result;
       }

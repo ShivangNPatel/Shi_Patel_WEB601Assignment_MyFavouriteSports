@@ -1,37 +1,39 @@
 <main>
-  <section class="searchForTitle">
-      <div>
-          <input type="text" [(ngModel)]="searchTitle" placeholder="Search Title here...">
-          <button (click)="searchByTitle()">Search</button>
-      </div>
-      <div *ngIf="titleFound !== null">
-          <p [style.color]="titleFound ? 'green' : 'red'">
-              {{titleFound ? 'Sport Exist' : 'Sport Not Exist'}}
-          </p>
-      </div>
-  </section>
+    <app-modify-content (addSongEvent)="addNewSong($event)"></app-modify-content>
 
-  <h1>Sport with No Type</h1>
+    <section class="searchForTitle">
+        <div>
+            <input type="text" [(ngModel)]="searchTitle" placeholder="Search Title here...">
+            <button (click)="searchByTitle()">Search</button>
+        </div>
+        <div *ngIf="titleFound !== null">
+            <p [style.color]="titleFound ? 'green' : 'red'">
+                {{titleFound ? 'Sports Exist' : 'Sports Not Exist'}}
+            </p>
+        </div>
+    </section>
 
-  <section class="cards">
-      <div *ngFor="let content of contents | contentTypeFilter:''" hoverAffect="border">
-          <app-content-card [song]="content" [class]="''"></app-content-card>
-      </div>
-  </section>
+    <h1>Sports with No Type</h1>
 
-  <h1>Indoor Games</h1>
+    <section class="cards">
+        <div *ngFor="let content of contents | contentTypeFilter:''" hoverAffect="border">
+            <app-content-card [song]="content" [class]="''"></app-content-card>
+        </div>
+    </section>
 
-  <section class="cards">
-      <div *ngFor="let content of contents | contentTypeFilter:'IndoorGames'" hoverAffect="border">
-          <app-content-card [song]="content" [class]="'IndoorGames'"></app-content-card>
-      </div>
-  </section>
+    <h1>Indoor Games</h1>
 
-  <h1>Outdoor Games</h1>
+    <section class="cards">
+        <div *ngFor="let content of contents | contentTypeFilter:'IndoorGames'" hoverAffect="border">
+            <app-content-card [song]="content" [class]="'IndoorGames'"></app-content-card>
+        </div>
+    </section>
 
-  <section class="cards">
-      <div *ngFor="let content of contents | contentTypeFilter:'OutdoorGames'" hoverAffect="border">
-          <app-content-card [song]="content" [class]="'OutdoorGames'"></app-content-card>
-      </div>
-  </section>
+    <h1>Outdoor Games</h1>
+
+    <section class="cards">
+        <div *ngFor="let content of contents | contentTypeFilter:'OutdoorGames'" hoverAffect="border">
+            <app-content-card [song]="content" [class]="'OutdoorGames'"></app-content-card>
+        </div>
+    </section>
 </main>

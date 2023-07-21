@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Content } from '../helper-files/content-interface';
 import { contents } from '../helper-files/contextDB';
 import { MessageService } from './message.service';
@@ -7,23 +8,31 @@ import { MessageService } from './message.service';
 @Injectable({
   providedIn: 'root'
 })
-export class SportsServiceService {
+export class SongServiceService {
 
-  constructor(private MessageService: MessageService) { }
+  private httpOptions = {
+    headers: new HttpHeaders({ "Content-Type": "application/json"})
+  }
+
+  constructor(private http: HttpClient , private MessageService: MessageService) { }
 
   getSongs(): Observable<Content[]>
   {
-    const sports = contents;
     this.MessageService.add("Content array loaded!");
-    return of(sports);
+    return this.http.get<Content[]>("/api/songs");
+  }
+
+  addSong(newSong: Content): Observable<Content>{
+    this.MessageService.add(`New Sport added`);
+    return this.http.post<Content>("/api/songs", newSong, this.httpOptions);
   }
 
   getSongById(id: number): Observable<any> {
-    const sports = contents.find(content => content.id === id);
+    const song = contents.find(content => content.id === id);
 
-    if (sports) {
+    if (song) {
       this.MessageService.add(`Content Item at id: ${id}`);
-      return of(sports);
+      return of(song);
     }
     this.MessageService.add("Invalid Id");
     return of("Invalid Id");

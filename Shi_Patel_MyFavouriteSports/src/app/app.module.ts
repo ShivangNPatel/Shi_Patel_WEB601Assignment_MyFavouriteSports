@@ -10,6 +10,11 @@ import { ContentTypeFilterPipe } from './content-type-filter.pipe';
 import { HoverAffectDirective } from './hover-affect.directive';
 import { MessageComponent } from './message/message.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './services/in-memory-data.service';
+import { ModifyContentComponent } from './modify-content/modify-content.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,12 +22,18 @@ import { MessageComponent } from './message/message.component';
     ContentListComponent,
     ContentTypeFilterPipe,
     HoverAffectDirective,
-    MessageComponent
+    MessageComponent,
+    ModifyContentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+      delay: 1000
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
-import { SportsServiceService } from '../services/sports-service.service';
+import { SongServiceService } from '../services/sports-service.service';
 
 @Component({
   selector: 'app-content-list',
@@ -14,13 +14,21 @@ export class ContentListComponent {
   titleFound: boolean | null = null;
   defaultSong: string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0HG2Zex_a1oIbRqjGFR7SzPXWp-9VjaCNmw&usqp=CAU';
 
-  constructor(private SportsServiceService: SportsServiceService){
+  constructor(private SongServiceService: SongServiceService){
     
   }
 
   ngOnInit() {
-    this.SportsServiceService.getSongs().subscribe(songs => this.contents = songs );
+    this.SongServiceService.getSongs().subscribe(songs => this.contents = songs );
   }
+
+  addNewSong(newSong: Content){
+    this.SongServiceService.addSong(newSong).subscribe(newSongFromServer => {
+      this.contents.push(newSongFromServer);
+      this.contents = [...this.contents];
+    });
+  }
+
 
   searchByTitle() {
     const matchingSong = this.contents.find(song => song.title.toLowerCase() === this.searchTitle.toLowerCase());
